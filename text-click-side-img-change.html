@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.hoverintent/1.10.2/jquery.hoverIntent.min.js"></script>
+    <style type="text/css">
+      .side-text-img-main-div {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .side-text-main-div,
+      .side-img-main-div {
+        width: 100%;
+      }
+
+      .side-img-main-div {
+        position: relative;
+        min-height: 704px;
+        max-height: 704px;
+        width: 100%;
+      }
+
+      .side-img {
+        opacity: 0;
+        transition: all 0.5s;
+      }
+
+      .side-img img,
+      .main-img {
+        position: absolute;
+        /*width: 100%;*/
+        /*max-width: 564px;*/
+        height: 100%;
+        object-fit: cover;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      .side-text-main-div ul li {
+      	padding-bottom: 20px;
+      	margin-bottom: 20px;
+      	border-bottom:1px solid black;
+      	list-style: none;
+      }
+
+      .side-text-main-div ul li p {
+        display: none;
+      }
+
+      .side-text-main-div ul {
+      	padding-right: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="side-text-img-main-div">
+      <div class="side-text-main-div">
+        <ul>
+          <li data-target="img1">text one <p class="location-answer"> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </li>
+          <li data-target="img2">text two <p class="location-answer"> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </li>
+          <li data-target="img3">text three <p class="location-answer"> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </li>
+          <li data-target="img4">text four <p class="location-answer"> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </li>
+          <li data-target="img5">text five <p class="location-answer"> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="side-img-main-div">
+        <img src="image/portfolio-img5.jpg" class="main-img">
+        <div class="side-img" data-location="img1">
+          <img src="image/portfolio-img1.jpg">
+        </div>
+        <div class="side-img" data-location="img2">
+          <img src="image/portfolio-img2.jpg">
+        </div>
+        <div class="side-img" data-location="img3">
+          <img src="image/portfolio-img3.jpg">
+        </div>
+        <div class="side-img" data-location="img4">
+          <img src="image/portfolio-img4.jpg">
+        </div>
+        <div class="side-img" data-location="img5">
+          <img src="image/portfolio-img5.jpg">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".side-text-main-div ul li").hoverIntent(function() {
+      var target = $(this).data("target");
+      $(".side-img[data-location='" + target + "']").css("opacity", "1");
+      $(this).find('.location-answer').slideDown();
+    }, function() {
+      var target = $(this).data("target");
+      $(".side-img[data-location='" + target + "']").css("opacity", "0");
+      $(this).find('.location-answer').slideUp();
+    });
+  });
+</script>
